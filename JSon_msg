@@ -1,0 +1,27 @@
+{id1 : {
+    'name': 'Chck_0',
+    'hard': uname().machine,
+    'soft': 'Micropython:'+uname().version,
+    'state': 0,                    # NEW,UPD,DEL,OK - barrier flag
+
+    'devs': [
+
+      { 'name':'dht',
+        'type':'DHT22',
+        'bus' :{'type':'I2C','SCL':4,'SDA':5,'freq':10000}, 
+        'set' :{'TMax':5,'TMin':0},
+        'get' :{'T':12.34,'P':567.891},
+        'exec':'dev_temp'
+      },
+      
+      { 'name':'r1',
+        'type':'RELAY',
+        'bus' :{'type':'1wire','DATA':14},
+        'set' :{'On':True},
+        'get' :{'On':True},
+        'exec':'dev_relay'
+      }
+     
+    ]
+  }
+}
